@@ -17,6 +17,7 @@ s3 = Song(id = 3, artist = "Sting", title = "Walking on the Moon", n = 0)
 s4 = Song(id = 4, artist = "Nick Cave & The Bad Seeds", title = "Rings of Saturn", n = 0) 
 s5 = Song(id = 5, artist = "Babylon Zoo", title = "Spaceman", n = 0)
 
+# Adding the data to the database
 db.session.add(p1)
 db.session.add(p2)
 db.session.add(p3)
@@ -30,4 +31,5 @@ db.session.add(s2)
 db.session.add(s3)
 db.session.add(s4)
 db.session.add(s5)
+# Commit the changes
 db.session.commit()

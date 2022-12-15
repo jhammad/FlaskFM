@@ -2,8 +2,9 @@ from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
-#set the SQLALCHEMY_DATABASE_URI key
+#set the SQLALCHEMY_DATABASE_URI keyv if it's online we need to state the url of the database
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///song_library.db'
+# we don't want to tracj the modifications of the database (it will faster the process)
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY'] = 'you-will-never-guess'
 #create an SQLAlchemy object named `db` and bind it to your app

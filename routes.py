@@ -1,5 +1,6 @@
 from flask import Flask
 from flask_wtf import FlaskForm
+from flask_sqlalchemy import SQLAlchemy
 from wtforms import StringField, SubmitField
 from wtforms.validators import DataRequired
 from app import app, db
@@ -27,7 +28,8 @@ def exists(item, playlist):
 #renders the home.html template providing the list of current users
 @app.route('/profiles')
 def profiles():
-    current_users = User.query.all() #change here to a database query
+    current_users = User.get.all() #change here to a database query
+    print(current_users)
     return render_template('users.html', current_users = current_users)
 
 #Displays profile pages for a user with the user_id primary key
