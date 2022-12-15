@@ -28,7 +28,7 @@ def exists(item, playlist):
 #renders the home.html template providing the list of current users
 @app.route('/profiles')
 def profiles():
-    current_users = User.get.all() #change here to a database query
+    current_users = User.query.all() #change here to a database query
     print(current_users)
     return render_template('users.html', current_users = current_users)
 
