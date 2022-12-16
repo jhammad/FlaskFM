@@ -1,5 +1,12 @@
-from flask import Flask, render_template
+import pytest
+from flask import Flask, render_template, current_app
 from flask_sqlalchemy import SQLAlchemy
+@pytest.fixture
+def client():
+    with app.test_client() as client:
+        with app.app_context():  # New!!
+            assert current_app.config["ENV"] == "production"
+        yield client
 
 app = Flask(__name__)
 #set the SQLALCHEMY_DATABASE_URI keyv if it's online we need to state the url of the database
